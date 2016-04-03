@@ -11,8 +11,8 @@ print(l)
 l = []
 import random
 x=0
-if(x<7):
-	l.append(random.randint(1,7))
+while(x<7):
+	l.append(random.randint(0,10))
 	x=x+1
 
 
