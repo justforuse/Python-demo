@@ -1,0 +1,7 @@
+f=open('test.txt','r')
+print(f.readline())
+print(f.readline())
+f.seek(0,0)
+print(f.readline())
+f.seek(1,0)
+print(f.readline())
