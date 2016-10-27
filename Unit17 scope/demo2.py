@@ -1,7 +1,7 @@
 x=88
 def func():
 	global x
-	x=99
+	x+=1
 
 func()
 print(x)
