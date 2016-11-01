@@ -1,4 +1,6 @@
 def intersect(*args):
+	print(args)
+	print(args[1:])
 	res = []
 	for x in args[0]:
 		for other in args[1:]:
