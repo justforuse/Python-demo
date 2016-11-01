@@ -5,6 +5,7 @@ def intersect(*args):
 			if x not in other:
 				break;
 			else:
+				print(x)
 				res.append(x)
 
 	return res
