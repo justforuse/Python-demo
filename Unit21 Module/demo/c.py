@@ -1,2 +1,2 @@
-def cFunc(str):
+def func(str):
 	print("c: ", str)
