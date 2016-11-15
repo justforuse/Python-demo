@@ -1,4 +1,14 @@
-class Person():
+class AttrDisplay:
+    def gatherAttrs(self):
+        attrs=[]
+        for key in sorted(self.__dict__):
+            attrs.append("%s=%s" % (key, getattr(self, key)))
+        return ", ".join(attrs)
+
+    def __str__(self):
+        return "%s: %s" % (self.__class__.__name__, self.gatherAttrs())
+
+class Person(AttrDisplay):
 
     def __init__(self, name, job=None, pay=0):
         self.name = name
@@ -13,30 +23,17 @@ class Person():
         # round: (num[, x])
         self.pay = int(self.pay * (1+percent))
 
-    def __str__(self):
-        return('Person: %s, %s, %s' % (self.name, self.job, self.pay))
-
-
 class Manager(Person):
-
-    def __init__(self, name, pay, job="boss",):
-        Person.__init__(self, name, pay, job)
+    def __init__(self, name, pay):
+        Person.__init__(self, name, "boss", pay)
 
     def giveRaise(self, percent, bonus=.10):
-        # bad way
-        # self.pay = int(self.pay*(1+bonus+percent))
-        # better way
         Person.giveRaise(self, percent+bonus)
 
+    
 
 if __name__ == "__main__":
-    allen = Person("Allen Yuan", "dev", 100)
-    print(allen.name, allen.pay)
-    print(allen.lastName())
-    allen.giveRaise(0.1)
-    print(allen.pay)
-
     bob=Manager("bob", 5000)
     print(bob)
-
-
+    sue = Person("Sue Jones", job="dev", pay=100000)
+    print(sue)
